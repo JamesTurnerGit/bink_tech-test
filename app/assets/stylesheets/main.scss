@@ -1,3 +1,23 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.colour {
+  border-style:dashed;
+  border-radius : 5px;
+  height: 50px;
+  width:  50px;
+  margin: 10px;
+  float: left;
+}
+
+.link {
+  display:block;
+  width:  100%;
+  height: 100%;
+}
+
+#red{background-color: red;}
+#pink{background-color: pink;}
+#green{background-color: green;}
+#blue{background-color: blue;}
+#purple{background-color: purple;}
