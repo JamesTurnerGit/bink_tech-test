@@ -14,26 +14,26 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-06-20T21:06:26+01:00">2017-06-20T21:06:26+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-06-20T21:24:44+01:00">2017-06-20T21:24:44+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.04%</span></span>
+    (<span class="covered_percent"><span class="green">97.69%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.88
+         1.9
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>9</b> files in total.
-    <b>153</b> relevant lines. 
-    <span class="green"><b>150</b> lines covered</span> and
+    <b>8</b> files in total.
+    <b>130</b> relevant lines. 
+    <span class="green"><b>127</b> lines covered</span> and
     <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -73,9 +73,9 @@
       <tr>
         <td class="strong"><a href="#cbfa01ba1a2381c5d599ff04cfa8f8853fb23367" class="src_link" title="app/models/google_api.rb">app/models/google_api.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>16</td>
-        <td>16</td>
+        <td>39</td>
+        <td>25</td>
+        <td>25</td>
         <td>0</td>
         <td>1.9</td>
       </tr>
@@ -83,11 +83,11 @@
       <tr>
         <td class="strong"><a href="#cdfbd12487a0a520fa7fd4202059d6d59d2d2669" class="src_link" title="app/models/response.rb">app/models/response.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>23</td>
-        <td>14</td>
-        <td>14</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
         <td>0</td>
-        <td>1.7</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -113,19 +113,9 @@
       <tr>
         <td class="strong"><a href="#4815784643a5751bc403df0668d5601df7c91e7a" class="src_link" title="spec/models/google_api_spec.rb">spec/models/google_api_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>40</td>
-        <td>26</td>
-        <td>26</td>
-        <td>0</td>
-        <td>1.8</td>
-      </tr>
-      
-      <tr>
-        <td class="strong"><a href="#7edc13bd5f7a3a9bfa8c820b62daf2207855ab99" class="src_link" title="spec/models/response_spec.rb">spec/models/response_spec.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>36</td>
-        <td>21</td>
-        <td>21</td>
+        <td>41</td>
+        <td>28</td>
+        <td>28</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -295,8 +285,8 @@
     <h3>app/models/google_api.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>25</b> relevant lines. 
+      <span class="green"><b>25</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -346,40 +336,40 @@
           <code class="ruby">  RESPONSE_CLASS = Response</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def search(noun, colour)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    time_before_search = Time.new</code>
-        </li>
-      
         <li class="covered" data-hits="2" data-linenumber="10">
           <span class="hits">2</span>
           
-          <code class="ruby">    response = HTTParty.get &quot;https://www.googleapis.com/customsearch/v1?q=#{noun}%20#{colour}&amp;cx=#{CX}&amp;filter=1&amp;num=5&amp;searchType=image&amp;key=#{GOOGLE_KEY}&quot;</code>
+          <code class="ruby">    response, response_time = http_request noun,colour</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="11">
           <span class="hits">2</span>
           
-          <code class="ruby">    response_time = ((Time.now - time_before_search) * 1000).to_i</code>
+          <code class="ruby">    links = parse_result response</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="12">
           <span class="hits">2</span>
           
-          <code class="ruby">    links = parse_result response</code>
+          <code class="ruby">    date, time = parse_time</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="13">
           <span class="hits">2</span>
           
-          <code class="ruby">    RESPONSE_CLASS.new noun, colour, links, response_time</code>
+          <code class="ruby">    RESPONSE_CLASS.new noun, colour, links, response_time, date, time</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -400,49 +390,139 @@
           <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def self.parse_result response</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="18">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    response.parsed_response[&quot;items&quot;].map do |item|</code>
-        </li>
-      
-        <li class="covered" data-hits="10" data-linenumber="19">
-          <span class="hits">10</span>
-          
-          <code class="ruby">      item[&quot;link&quot;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="23">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.parse_time</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    time_stamp =Time.now</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="20">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    time = time_stamp.strftime(&quot;%H:%M:%S&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="21">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    date = time_stamp.strftime(&quot;%d/%m/%Y&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    return date, time</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.http_request noun,colour</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    time_before_search = Time.new</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    response = HTTParty.get &quot;https://www.googleapis.com/customsearch/v1?q=#{noun}%20#{colour}&amp;cx=#{CX}&amp;filter=1&amp;num=5&amp;searchType=image&amp;key=#{GOOGLE_KEY}&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="28">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    response_time = ((Time.now - time_before_search) * 1000).to_i</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="29">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    return response,response_time</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def self.parse_result response</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="33">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    response.parsed_response[&quot;items&quot;].map do |item|</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="34">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      item[&quot;link&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
           <code class="ruby">  module_function :search</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">end</code>
@@ -458,8 +538,8 @@
     <h3>app/models/response.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>1</b> relevant lines. 
+      <span class="green"><b>1</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -467,142 +547,10 @@
   <pre>
     <ol>
       
-        <li class="never" data-hits="" data-linenumber="1">
-          
-          
-          <code class="ruby">#understands the results and stats of a single search</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
+        <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Response</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  attr_reader :response_time, :noun, :colour, :results</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def initialize (noun, colour, results, response_time)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @noun = noun</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @colour = colour</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="8">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @results = results</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="9">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @response_time = response_time</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="10">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @time_stamp = Time.now</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def date</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    time_stamp.strftime(&quot;%d/%m/%Y&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def time</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    time_stamp.strftime(&quot;%H:%M:%S&quot;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  private</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="22">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  attr_reader :time_stamp</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">end</code>
+          <code class="ruby">Response = Struct.new(:noun, :colour, :results, :response_time, :date, :time)</code>
         </li>
       
     </ol>
@@ -911,8 +859,8 @@
     <h3>spec/models/google_api_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>26</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
+      <b>28</b> relevant lines. 
+      <span class="green"><b>28</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1130,266 +1078,37 @@
           <code class="ruby">      response_time = 1000</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      date = &quot;21/10/2015&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(Response).to have_received(:new).with(noun,colour,links,response_time)</code>
+          <code class="ruby">      time = &quot;07:28:01&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      expect(Response).to have_received(:new).with(noun,colour,links,response_time,date, time)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-
-      
-        <div class="source_table" id="7edc13bd5f7a3a9bfa8c820b62daf2207855ab99">
-  <div class="header">
-    <h3>spec/models/response_spec.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>21</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">require &#39;spec_helper&#39;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">describe Response do</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="5">
-          <span class="hits">4</span>
-          
-          <code class="ruby">  let(:noun) {double(&quot;noun&quot;)}</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="6">
-          <span class="hits">4</span>
-          
-          <code class="ruby">  let(:colour) {double(&quot;colour&quot;)}</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="7">
-          <span class="hits">4</span>
-          
-          <code class="ruby">  let(:results) {double(&quot;results&quot;)}</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
-          
-          <code class="ruby">  let(:response_time) {double(&quot;response_time&quot;)}</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  before(:each){</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="11">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    allow(Time).to receive(:now).and_return(Time.mktime(2015,10,21,7,28))</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby">  }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="13">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="14">
-          <span class="hits">4</span>
-          
-          <code class="ruby">  subject{ Response.new(noun, colour, results, response_time)}</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;#new&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;stores and returns all attributes from initialize&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.noun).to eq noun</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.colour).to eq colour</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.results).to eq results</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.response_time).to eq response_time</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="25">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;#date&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;returns date as a string&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="27">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.date).to eq &quot;21/10/2015&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  describe &quot;#time&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="32">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    it &quot;returns time as a string&quot; do</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="33">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      expect(subject.time).to eq &quot;07:28:00&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">end</code>

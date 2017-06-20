@@ -5,15 +5,30 @@ module GoogleApi
   CX = Rails.application.secrets.cx
   GOOGLE_KEY = Rails.application.secrets.google_key
   RESPONSE_CLASS = Response
+
   def search(noun, colour)
-    time_before_search = Time.new
-    response = HTTParty.get "https://www.googleapis.com/customsearch/v1?q=#{noun}%20#{colour}&cx=#{CX}&filter=1&num=5&searchType=image&key=#{GOOGLE_KEY}"
-    response_time = ((Time.now - time_before_search) * 1000).to_i
+    response, response_time = http_request noun,colour
     links = parse_result response
-    RESPONSE_CLASS.new noun, colour, links, response_time
+    date, time = parse_time
+    RESPONSE_CLASS.new noun, colour, links, response_time, date, time
   end
 
   private
+
+  def self.parse_time
+    time_stamp =Time.now
+    time = time_stamp.strftime("%H:%M:%S")
+    date = time_stamp.strftime("%d/%m/%Y")
+    return date, time
+  end
+
+  def self.http_request noun,colour
+    time_before_search = Time.new
+    response = HTTParty.get "https://www.googleapis.com/customsearch/v1?q=#{noun}%20#{colour}&cx=#{CX}&filter=1&num=5&searchType=image&key=#{GOOGLE_KEY}"
+    response_time = ((Time.now - time_before_search) * 1000).to_i
+    return response,response_time
+  end
+
   def self.parse_result response
     response.parsed_response["items"].map do |item|
       item["link"]

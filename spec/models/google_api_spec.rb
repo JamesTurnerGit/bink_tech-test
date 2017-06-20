@@ -33,8 +33,9 @@ describe GoogleApi do
 
       links = [item1,item2,item3,item4,item5]
       response_time = 1000
-
-      expect(Response).to have_received(:new).with(noun,colour,links,response_time)
+      date = "21/10/2015"
+      time = "07:28:01"
+      expect(Response).to have_received(:new).with(noun,colour,links,response_time,date, time)
     end
   end
 end
