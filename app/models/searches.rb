@@ -10,7 +10,7 @@ class Searches
 
   def new_search colour, noun
     result,response_time = search_api.search("#{colour} #{noun}")
-    @searches << response_class.new(colour, noun, result, response_time)
+    @searches.unshift(response_class.new(colour, noun, result, response_time))
   end
 
   def self.instance
@@ -19,12 +19,12 @@ class Searches
 
   def latest_search
     return nil if searches.empty?
-    searches.last.results
+    searches.first.results
   end
 
   def previous_searches
     return nil if searches.length < 2
-    searches[-2..0]
+    searches[1..-1]
   end
 
   attr_reader :search_api, :response_class
