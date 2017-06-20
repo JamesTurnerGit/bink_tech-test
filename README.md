@@ -19,7 +19,14 @@ invert dependencies
 make border of images changed based on last colour
 make main view into partials.
 
+
+# odd choices
+helpers not tested as it's a single line method that returns a random result
+
+singleton pattern used to store data for the current session only, simplest choice available
+
 # README
+
 
 
 This README would normally document whatever steps are necessary to get the
