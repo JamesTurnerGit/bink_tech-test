@@ -24,16 +24,22 @@ th,td{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 27px;
   margin-left: auto;
   margin-right:auto;
 }
 
 #images{
+  width: 1149px;
+  display: inline-table;
 }
 
 #colours{
-  max-width: 500px;
+  width: 500px;
+}
+
+#history{
+  width: 782px;
 }
 
 .colour {

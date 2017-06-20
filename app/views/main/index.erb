@@ -1,5 +1,5 @@
 
-<h1>colours and nouns pro</h1>
+<h1>COLOURS AND NOUNS PRO</h1>
 
 <p>your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour from below to go with it?</p>
 
@@ -16,7 +16,6 @@
 <% if @searches.latest_search %>
   <div class="container" id="images">
     <h2>results for "<%="#{@searches.searches[0].colour} #{@searches.searches[0].noun}"%>"</h2>
-    <br>
     <% @searches.latest_search.each do |image| %>
       <%= link_to image_tag(image, class: "image"), image %>
     <% end %>
