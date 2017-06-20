@@ -2,15 +2,13 @@
 class Searches
   attr_reader :searches
 
-  def initialize (search_api = GoogleApi, response_class = Response)
+  def initialize (search_api = GoogleApi)
     @searches = []
     @search_api = search_api
-    @response_class = response_class
   end
 
   def new_search noun, colour
-    result,response_time = search_api.search("#{noun} #{colour}")
-    @searches.unshift(response_class.new(noun, colour, result, response_time))
+    @searches.unshift(search_api.search(noun, colour))
   end
 
   def self.instance
@@ -27,6 +25,6 @@ class Searches
     searches[1..-1]
   end
 
-  attr_reader :search_api, :response_class
+  attr_reader :search_api
   @@instance = Searches.new
 end
