@@ -1,7 +1,7 @@
 
 <h1>colours and nouns pro</h1>
 
-your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour below to go with it?
+<p>your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour from below to go with it?</p>
 
 <div class="container" id="colours">
   <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "red"},id: "red"}%>
@@ -15,7 +15,8 @@ your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour bel
 
 <% if @searches.latest_search %>
   <div class="container" id="images">
-    <h2>results for ""</h2>
+    <h2>results for "<%="#{@searches.searches[0].colour} #{@searches.searches[0].noun}"%>"</h2>
+    <br>
     <% @searches.latest_search.each do |image| %>
       <%= link_to image_tag(image, class: "image"), image %>
     <% end %>
@@ -24,21 +25,20 @@ your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour bel
 
 <% if @searches.previous_searches %>
   <div class="container" id="history">
-    <h2>history</h2>
     <table>
       <tr>
         <th>date</th>
         <th>time</th>
-        <th>noun</th>
         <th>colour</th>
-        <th>http response time</th>
+        <th>noun</th>
+        <th>http response</th>
       </tr>
       <% @searches.previous_searches.each do |search| %>
       <tr>
         <td><%= search.date %></td>
         <td><%= search.time %></td>
-        <td><%= search.noun %></td>
         <td><%= search.colour %></td>
+        <td><%= search.noun %></td>
         <td><%= search.response_time %></td>
       </tr>
       <% end %>

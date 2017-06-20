@@ -2,7 +2,7 @@
 class Response
   attr_reader :response_time, :noun, :colour, :results
 
-  def initialize (noun,colour,results,response_time)
+  def initialize (noun, colour, results, response_time)
     @noun = noun
     @colour = colour
     @results = results

@@ -8,9 +8,9 @@ class Searches
     @response_class = response_class
   end
 
-  def new_search colour, noun
-    result,response_time = search_api.search("#{colour} #{noun}")
-    @searches.unshift(response_class.new(colour, noun, result, response_time))
+  def new_search noun, colour
+    result,response_time = search_api.search("#{noun} #{colour}")
+    @searches.unshift(response_class.new(noun, colour, result, response_time))
   end
 
   def self.instance

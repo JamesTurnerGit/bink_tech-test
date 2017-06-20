@@ -12,10 +12,6 @@ style table
 
 make it really pretty
 
-results initialize
-invert dependencies
-
-
 make border of images changed based on last colour
 make main view into partials.
 
@@ -24,6 +20,11 @@ make main view into partials.
 helpers not tested as it's a single line method that returns a random result
 
 singleton pattern used to store data for the current session only, simplest choice available
+
+you can click on any image to see the full version- because it was more simple to allow all than to process the first result seperatly.
+
+# heroku
+https://ancient-ocean-25028.herokuapp.com/
 
 # README
 
