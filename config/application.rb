@@ -1,7 +1,7 @@
 require_relative 'boot'
 
-require "dotenv/load" unless Rails.env.production?
 require "rails"
+require "dotenv/load" unless Rails.env.production?
 # Pick the frameworks you want:
 require "active_model/railtie"
 # require "active_job/railtie"
