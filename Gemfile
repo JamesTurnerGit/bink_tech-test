@@ -30,11 +30,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'dotenv'
+  
   gem 'rspec'
   gem 'rspec-rails'
 
   gem 'rails-controller-testing'
-  
+
   gem 'autotest'
   gem 'autotest-standalone'
 

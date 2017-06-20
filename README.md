@@ -12,6 +12,7 @@ REMOVE API KEY
 make main view into partials.
 `googleAPI` should return `Response` objects
 
+check for thumbnails
 make it really pretty
 new font
 "green happiness" on it's own line
