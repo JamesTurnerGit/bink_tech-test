@@ -4,18 +4,32 @@
 h1{
 }
 
-#colours{
+.container{
   border-style:double;
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
+  margin: 10px;
 }
 
+#images{
+}
+
+#colours{
+  max-width: 500px;
+}
 .colour {
   height: 50px;
   width:  50px;
+  margin: 10px;
+}
+
+.image {
+  border-style: dashed;
+  border-radius: 30px;
+  max-height: 200px;
+  max-width: 200px;
   margin: 10px;
 }
 

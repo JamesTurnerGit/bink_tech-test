@@ -2,14 +2,46 @@
 <h1>colours and nouns pro</h1>
 
 your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour below to go with it?
-<br>
 
-<div id="colours">
-  <%= button_to "",{},{class: "colour",id: "red",    params: {noun: @random_noun, colour: "red"}}%>
-  <%= button_to "",{},{class: "colour",id: "pink",   params: {noun: @random_noun, colour: "pink"}}%>
-  <%= button_to "",{},{class: "colour",id: "orange", params: {noun: @random_noun, colour: "orange"}}%>
-  <%= button_to "",{},{class: "colour",id: "yellow", params: {noun: @random_noun, colour: "yellow"}}%>
-  <%= button_to "",{},{class: "colour",id: "green",  params: {noun: @random_noun, colour: "green"}}%>
-  <%= button_to "",{},{class: "colour",id: "blue",   params: {noun: @random_noun, colour: "blue"}}%>
-  <%= button_to "",{},{class: "colour",id: "purple", params: {noun: @random_noun, colour: "purple"}}%>
+<div class="container" id="colours">
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "red"},id: "red"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "pink"},id: "pink"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "orange"},id: "orange"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "yellow"},id: "yellow"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "green"},id: "green"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "blue"},id: "blue"}%>
+  <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "purple"},id: "purple"}%>
 </div>
+
+<% if @images %>
+  <div class="container" id="images">
+    <h2>results for "<%=@colour%> <%=@noun%>"</h2>
+    <%@images.each do |image| %>
+      <%= link_to image_tag(image, class: "image"), image %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @previous_searches %>
+  <div class="container" id="history">
+    <h2>history</h2>
+    <table>
+      <tr>
+        <th>date</th>
+        <th>time</th>
+        <th>noun</th>
+        <th>colour</th>
+        <th>http response time</th>
+      </tr>
+      <% @previous_searches.each do |search| %>
+      <tr>
+        <td><%= search.date %></td>
+        <td><%= search.time %></td>
+        <td><%= search.noun %></td>
+        <td><%= search.colour %></td>
+        <td><%= search.response_time %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>
