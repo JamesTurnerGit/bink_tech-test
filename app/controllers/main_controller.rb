@@ -5,15 +5,8 @@ class MainController < ApplicationController
   end
 
   def search
-    @colour =  params[:colour]
-    @noun   = params[:noun]
-
-    searches = Searches.instance
-    searches.new_search @colour, @noun
-
-    @images = searches.latest_search
-    @previous_searches = searches.previous_searches
-
+    @searches = Searches.instance
+    searches.new_search params[:colour], params[:noun]
     @random_noun = random_noun
     render "index"
   end

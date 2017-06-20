@@ -1,3 +1,4 @@
+#understands who to ask to make searches and how to store/retrieve them
 class Searches
   attr_reader :searches
 

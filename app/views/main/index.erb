@@ -13,16 +13,16 @@ your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour bel
   <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "purple"},id: "purple"}%>
 </div>
 
-<% if @images %>
+<% if searches.latest_search %>
   <div class="container" id="images">
-    <h2>results for "<%=@colour%> <%=@noun%>"</h2>
-    <%@images.each do |image| %>
+    <h2>results for ""</h2>
+    <% searches.latest_search.each do |image| %>
       <%= link_to image_tag(image, class: "image"), image %>
     <% end %>
   </div>
 <% end %>
 
-<% if @previous_searches %>
+<% if @searches.previous_searches %>
   <div class="container" id="history">
     <h2>history</h2>
     <table>
@@ -33,7 +33,7 @@ your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour bel
         <th>colour</th>
         <th>http response time</th>
       </tr>
-      <% @previous_searches.each do |search| %>
+      <% @searches.previous_searches.each do |search| %>
       <tr>
         <td><%= search.date %></td>
         <td><%= search.time %></td>
