@@ -13,10 +13,10 @@ your random noun is <b><%= @random_noun %></b>, why not pick a lovely colour bel
   <%= button_to "",{},{class: "colour",params: {noun: @random_noun, colour: "purple"},id: "purple"}%>
 </div>
 
-<% if searches.latest_search %>
+<% if @searches.latest_search %>
   <div class="container" id="images">
     <h2>results for ""</h2>
-    <% searches.latest_search.each do |image| %>
+    <% @searches.latest_search.each do |image| %>
       <%= link_to image_tag(image, class: "image"), image %>
     <% end %>
   </div>

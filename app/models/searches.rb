@@ -8,19 +8,21 @@ class Searches
 
   def new_search colour, noun
     result,response_time = GoogleApi.search("#{colour} #{noun}")
-    @searches << Result.new(colour, noun, result, response_time)
+    @searches << Response.new(colour, noun, result, response_time)
   end
+
   def self.instance
     @@instance
   end
 
   def latest_search
+    return nil if searches.empty?
     searches.last.results
   end
 
   def previous_searches
     return nil if searches.length < 2
-    searches[0..-2]
+    searches[-2..0]
   end
 
   @@instance = Searches.new
