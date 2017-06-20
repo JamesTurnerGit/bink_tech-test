@@ -1,20 +1,15 @@
 write all tests before refactoring anything!
-Then get working on heroku
-
-consider history re-search as find/new path
-consider renaming search to new
 
 refactor google search api
-get rid of "@random_noun" in search path
 sessions over singleton
 
-style table
+make main view into partials.
 
 make it really pretty
 
-make border of images changed based on last colour
-make main view into partials.
-
+new font
+"green happiness" on it's own line
+max-width for items
 
 # odd choices
 helpers not tested as it's a single line method that returns a random result

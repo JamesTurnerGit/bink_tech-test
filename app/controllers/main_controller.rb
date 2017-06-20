@@ -7,7 +7,7 @@ class MainController < ApplicationController
 
   def search
     searches = Searches.instance
-    searches.new_search params[:colour], params[:noun]
+    searches.new_search params[:noun], params[:colour]
     redirect_to action: "index"
   end
 end

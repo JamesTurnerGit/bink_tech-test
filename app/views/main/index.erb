@@ -31,7 +31,8 @@
         <th>time</th>
         <th>colour</th>
         <th>noun</th>
-        <th>http response</th>
+        <th>response time</th>
+        <th></th>
       </tr>
       <% @searches.previous_searches.each do |search| %>
       <tr>
@@ -40,6 +41,7 @@
         <td><%= search.colour %></td>
         <td><%= search.noun %></td>
         <td><%= search.response_time %></td>
+        <td><%= button_to "rerun search",{action: "search"},{params: {colour: search.colour, noun: search.noun}}  %>
       </tr>
       <% end %>
     </table>
