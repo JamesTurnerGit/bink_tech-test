@@ -14,8 +14,11 @@ after this you should just be able to run `rails s` in the console and visit it 
 
 ## usage
 When you visit the site you get told what your noun is, you can then click a square to pick a colour.
+
 The site then displays the top 5 results below the colours and gives you a new noun.
+
 At this point you can either search again or click an image to see the full size version at it's original address.
+
 After conducting another search the history box appears below the results box, from here you can rerun searches using the buttons at the side
 
 ## heroku deployment
@@ -40,6 +43,6 @@ not using dominant colour as a filter- Google search API does not allow the colo
 
 ## things i'd do differently starting from scratch
 
-In this exact challenge since it looks like it's mainly the ruby being judged and not the project as a whole I'd implement a database from the start.
+given the original timeframe I think the choice to make a site without a database wasn't a bad idea, although if i'd known earlier about the extension i'd have gone with a database to begin with.
 
-on the other hand; with a less metric driven and ruby based briefing - I'd definatly go the JS route for data-storage, it's got the advantage of not clogging up the server with needless data to be cleaned and makes for a much smoother user experience.
+given a more free-range on solutions instead of focussing on ruby and metrics - I'd definatly go the down the javaScript route for data-storage, it's got the advantage of not clogging up the server with needless data to be cleaned up and makes for a much smoother single-page user experience with jquery.
