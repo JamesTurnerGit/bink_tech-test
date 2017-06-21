@@ -14,7 +14,7 @@ CX=[your CSE's id code]
 ```
 after this you should just be able to run `rails s` in the console and visit it on a local brower at `localhost:3000`
 
-# usage
+## usage
 When you visit the site you get told what your noun is, you can then click a square to pick a colour.
 The site then displays the top 5 results below the colours and gives you a new noun.
 At this point you can either search again or click an image to see the full size version at it's original address.
@@ -40,7 +40,7 @@ you can click on any image to see the full version - because it was more simple 
 
 not using dominant colour as a filter- Google search API does not allow the colour red, amongst others. instead, the colour is appended onto the search term.
 
-## things to do differently if I started from scratch again
+## things i'd do differently starting from scratch
 
 because In this case it looks like it's mainly the ruby being judged and not the project as a whole I'd implement a database from the start.
 
