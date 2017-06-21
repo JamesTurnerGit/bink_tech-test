@@ -42,6 +42,7 @@ you can click on any image to see the full version - because it was more simple 
 not using dominant colour as a filter- Google search API does not allow the colour red, amongst others. instead, the colour is appended onto the search term.
 
 ## things i'd do differently starting from scratch
+heavier TDD - the code was mostly spiked because I'd not worked with rails for a while so was refamiliarizing myself with its workings. I was able to spike in a testable and lightweight fashion, but given a bit more familiarity with a domain, I'd prefer good strong TDD.
 
 given the original timeframe, I think the choice to make a site without a database wasn't the worst idea, although if I'd known earlier about the extension I'd have gone with a database, to begin with.
 
