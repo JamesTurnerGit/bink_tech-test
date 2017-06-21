@@ -32,7 +32,7 @@ check for thumbnails from google api instead of getting fullsize images.
 ## choices made during design
 the single helper is not tested as it's a single line method that returns a random result.
 
-the singleton pattern was used to store data for the current session only, as it was the simplest choice available for temporarily storing data.
+the singleton pattern was used to store data for the current session only, as it was the simplest choice available for quickly storing and retrieving data. this has led to the side effect of sharing the searches across all users - as this isn't against the brief it was kept in.
 
 you can click on any image to see the full version - because it was more simple to allow all than to process the first result separately.
 
@@ -40,6 +40,6 @@ not using dominant colour as a filter- Google search API does not allow the colo
 
 ## things i'd do differently starting from scratch
 
-because In this case it looks like it's mainly the ruby being judged and not the project as a whole I'd implement a database from the start.
+In this exact challenge since it looks like it's mainly the ruby being judged and not the project as a whole I'd implement a database from the start.
 
 on the other hand; with a less metric driven and ruby based briefing - I'd definatly go the JS route for data-storage, it's got the advantage of not clogging up the server with needless data to be cleaned and makes for a much smoother user experience.
