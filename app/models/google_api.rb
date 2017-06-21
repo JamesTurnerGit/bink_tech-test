@@ -20,7 +20,7 @@ module GoogleApi
     code = response.code
     return if code == 200
     error = response.parsed_response["error"]["errors"][0]
-    raise "google api error #{code}: #{error["domain"]} - #{error["reason"]}"
+    raise "google api error #{code}: #{error}"
   end
 
   def self.parse_time
