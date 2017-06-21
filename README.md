@@ -1,8 +1,6 @@
 # Bink tech-test
 a quick challenge to make a website that displays an image search using a colour selected by the user and a random noun and includes some surrounding features.
 
-the original time limit was 24 hours, would have finished well within that but the deadline was moved to allow 20 more, so the extra time was utilized for css.
-
 ## installation
 Installing a local version isn't easy as you have to configure a CSE from google to run an image search and then also get an APIKEY to go with it.
 
