@@ -8,12 +8,20 @@ module GoogleApi
 
   def search(noun, colour)
     response, response_time = http_request noun,colour
+    error_check response
     links = parse_result response
     date, time = parse_time
     RESPONSE_CLASS.new noun, colour, links, response_time, date, time
   end
 
   private
+
+  def self.error_check response
+    code = response.code
+    return if code == 200
+    error = response.parsed_response["error"]["errors"][0]
+    raise "google api error #{code}: #{error["domain"]} - #{error["reason"]}"
+  end
 
   def self.parse_time
     time_stamp =Time.now
