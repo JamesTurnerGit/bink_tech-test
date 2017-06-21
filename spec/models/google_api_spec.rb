@@ -11,7 +11,7 @@ describe GoogleApi do
     {"items" => [{"link" => item1},{"link" => item2},{"link" => item3},{"link" => item4},{"link" => item5}]}
   }
 
-  let(:raw_response){double("raw_response",parsed_response: parsed_response)}
+  let(:raw_response){double("raw_response",code: 200, parsed_response: parsed_response)}
 
   before(:each){
     allow(HTTParty).to receive(:get).and_return(raw_response)
