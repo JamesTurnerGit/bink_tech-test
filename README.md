@@ -25,23 +25,23 @@ https://ancient-ocean-25028.herokuapp.com/
 
 ## things i'd like to keep working on if this idea needed expanding
 
-make main view into partials.
+split the index view into partials.
 
-make the boxes apear using js and jquery instead of having to recreate the first view.
+manipulate the main view using js and jquery instead of going through redirects to update. could keep the required data in JS objects.
 
-install a database.
-
-check for thumbnails from google api instead of getting fullsize images
-new font.
+check for thumbnails from google api instead of getting fullsize images.
 
 ## choices made during design
-helpers was not tested as it's a single line method that returns a random result.
+the single helper is not tested as it's a single line method that returns a random result.
 
-singleton pattern used to store data for the current session only, as it was the simplest choice available for temporaliy storing data; In the same vien `Response` is used like a row in a database, thus it has a lot of instance vars, again used for simplicity of deployment. Both these smells could be removed by installing a DB, the reason I didn't do so was the "helpful tips" in the briefing "Do not over think your solution, keep it simple & use what you know" and "Avoid creating additional requirements, e.g. persistence between sessions is not stated"
+the singleton pattern was used to store data for the current session only, as it was the simplest choice available for temporarily storing data.
 
-you can click on any image to see the full version - because it was more simple to allow all than to process the first result seperatly.
+you can click on any image to see the full version - because it was more simple to allow all than to process the first result separately.
 
-not using dominant colour as a filter- google search api does not allow the colour red, amongst others. instead the colour is appended onto the search term.
+not using dominant colour as a filter- Google search API does not allow the colour red, amongst others. instead, the colour is appended onto the search term.
 
 ## things to do differently if I started from scratch again
-I'd go straight for creating a db next time, The current solution has two codesmells directly related to not having one, and I don't think the jump in complexity would be that great if you don't try matching a new user up to old searches.
+
+because In this case it looks like it's mainly the ruby being judged and not the project as a whole I'd implement a database from the start.
+
+on the other hand; with a less metric driven and ruby based briefing - I'd definatly go the JS route for data-storage, it's got the advantage of not clogging up the server with needless data to be cleaned and makes for a much smoother user experience.
