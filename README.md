@@ -43,6 +43,6 @@ not using dominant colour as a filter- Google search API does not allow the colo
 
 ## things i'd do differently starting from scratch
 
-given the original timeframe, I think the choice to make a site without a database wasn't a bad idea, although if I'd known earlier about the extension I'd have gone with a database, to begin with.
+given the original timeframe, I think the choice to make a site without a database wasn't the worst idea, although if I'd known earlier about the extension I'd have gone with a database, to begin with.
 
 given a more free-range on solutions instead of focussing on Ruby and metrics - I'd definitely go the down the javaScript route for data-storage, it's got the advantage of not clogging up the server with needless data to be cleaned up and makes for a much smoother single-page user experience with jquery.
